@@ -1,0 +1,18 @@
+﻿@inject Serenity.ITextLocalizer Localizer
+@{
+    ViewData["Title"] = Localizer.Get("Db.Default.Employee.EntityPlural");
+}
+
+<div id="GridDiv"></div>
+<<style>
+    .null{
+        background-color : orangered !important
+    }
+</style>
+<script type="text/javascript">
+    jQuery(function () {
+        new Serene1.Default.EmployeeGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

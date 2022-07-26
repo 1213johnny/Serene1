@@ -1,0 +1,24 @@
+﻿@model List<Serene1.Default.ContactBookRow>
+
+@if ((bool?)ViewData["Printing"] == true)
+{
+    Layout = MVC.Views.Shared._LayoutNoNavigation;
+}
+<body>
+    <table>
+        <tr>
+            <th>案號</th>
+            <th>建議</th>       
+            <th>建議日期</th>
+        </tr>
+        @foreach(var data in Model){
+            <tr>
+                <th>@data.Caseno</th>
+                <th>@data.Advise</th>                
+                <th>@data.Advisedate.GetValueOrDefault().ToString("yyyy-MM-dd HH:mm:ss")</th>
+            </tr>
+
+        }
+    </table>
+
+</body>
