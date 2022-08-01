@@ -20,10 +20,12 @@
     <EmbeddedResource Remove="Modules\Default\NewFolder\**" />
     <None Remove="Modules\Default\NewFolder\**" />
     <TypeScriptCompile Remove="Modules\Default\NewFolder\**" />
+    <Compile Remove="Migrations\DefaultDB\.cs" />
     <Compile Remove="Migrations\DefaultDB\DefaultDB_20220720_154200_Announcements.cs" />
     <Compile Remove="Migrations\DefaultDB\DefaultDB_20220720_162600_AnnouncementDetails.cs" />
     <Compile Remove="Migrations\DefaultDB\DefaultDB_20220720_165000_AnnouncementDetails.cs" />
     <Compile Remove="Migrations\DefaultDB\DefaultDB_20220720_171000_Announcements.cs" />
+    <Compile Remove="Migrations\DefaultDB\DefaultDB_20220727_114000_Departments.cs" />
     <None Update="wwwroot\**\*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>

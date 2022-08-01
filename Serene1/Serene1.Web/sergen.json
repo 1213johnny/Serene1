@@ -43,8 +43,20 @@
           "PermissionKey": "Administration:General"
         },
         {
+          "Tablename": "dbo.Clinics",
+          "Identifier": "Clinics",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.ContactBook",
           "Identifier": "ContactBook",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Departments",
+          "Identifier": "Departments",
           "Module": "Default",
           "PermissionKey": "Administration:General"
         },
@@ -69,6 +81,12 @@
         {
           "Tablename": "dbo.RepairFormRecords",
           "Identifier": "RepairFormRecords",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.SpecialCallingLogics",
+          "Identifier": "SpecialCallingLogics",
           "Module": "Default",
           "PermissionKey": "Administration:General"
         }

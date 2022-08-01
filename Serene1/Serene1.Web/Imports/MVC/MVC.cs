@@ -63,6 +63,11 @@ namespace MVC
                 public const string CaseServiceDataCustomIndex = "~/Modules/Default/CaseServiceDataCustom/CaseServiceDataCustomIndex.cshtml";
             }
 
+            public static class Clinics
+            {
+                public const string ClinicsIndex = "~/Modules/Default/Clinics/ClinicsIndex.cshtml";
+            }
+
             public static class ContactBook
             {
                 public const string ContactBookIndex = "~/Modules/Default/ContactBook/ContactBookIndex.cshtml";
@@ -72,6 +77,11 @@ namespace MVC
             public static class ContactBookCustom
             {
                 public const string ContactBookCustomIndex = "~/Modules/Default/ContactBookCustom/ContactBookCustomIndex.cshtml";
+            }
+
+            public static class Departments
+            {
+                public const string DepartmentsIndex = "~/Modules/Default/Departments/DepartmentsIndex.cshtml";
             }
 
             public static class Employee
@@ -98,6 +108,11 @@ namespace MVC
             public static class RepairFormRecordsCustom
             {
                 public const string RepairFormRecordsCustomIndex = "~/Modules/Default/RepairFormRecordsCustom/RepairFormRecordsCustomIndex.cshtml";
+            }
+
+            public static class SpecialCallingLogics
+            {
+                public const string SpecialCallingLogicsIndex = "~/Modules/Default/SpecialCallingLogics/SpecialCallingLogicsIndex.cshtml";
             }
         }
 

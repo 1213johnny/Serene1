@@ -15,3 +15,6 @@ using MyPages = Serene1.Default.Pages;
 [assembly: NavigationLink(int.MaxValue, "DefaultBackend/Announcement Detail", typeof(MyPages.AnnouncementDetailController), icon: null, Permission = Serene1.Default.DefaultPermissionKeys.AnnouncementDetail.Menu)]
 [assembly: NavigationLink(int.MaxValue, "DefaultBackend/Repair Form Records", typeof(MyPages.RepairFormRecordsController), icon: null, Permission = Serene1.Default.DefaultPermissionKeys.RepairFormRecords.Menu)]
 [assembly: NavigationLink(int.MaxValue, "DefaultBackend/Repair Form Detail Records", typeof(MyPages.RepairFormDetailRecordsController), icon: null, Permission = Serene1.Default.DefaultPermissionKeys.RepairFormDetailRecords.Menu)]
+[assembly: NavigationLink(int.MaxValue, "DefaultBackend/Departments", typeof(MyPages.DepartmentsController), icon: null, Permission = Serene1.Default.DefaultPermissionKeys.Departments.Menu)]
+[assembly: NavigationLink(int.MaxValue, "DefaultBackend/Clinics", typeof(MyPages.ClinicsController), icon: null, Permission = Serene1.Default.DefaultPermissionKeys.Clinics.Menu)]
+[assembly: NavigationLink(int.MaxValue, "DefaultBackend/Special Calling Logics", typeof(MyPages.SpecialCallingLogicsController), icon: null)]

@@ -12,7 +12,6 @@
         ServiceCount: Serenity.IntegerEditor;
         EvalutionLevel: Serenity.StringEditor;
         HandlingPlace: Serenity.StringEditor;
-        Place: Serenity.StringEditor;
         RepairEmpId: Serenity.StringEditor;
         DetailList: RepairFormRecordsGridEditor;
     }
@@ -46,7 +45,6 @@
                     'ServiceCount', w2,
                     'EvalutionLevel', w0,
                     'HandlingPlace', w0,
-                    'Place', w0,
                     'RepairEmpId', w0,
                     'DetailList', w3
                 ]);

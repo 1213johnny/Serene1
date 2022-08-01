@@ -12,7 +12,6 @@ namespace Serene1.Default.Forms
     [BasedOnRow(typeof(RepairFormRecordsRow), CheckNames = true)]
     public class RepairFormRecordsFormCustom
     {
-       
         [HalfWidth]
         public string CaseNo { get; set; }
         [HalfWidth]
@@ -38,11 +37,9 @@ namespace Serene1.Default.Forms
         [HalfWidth]
         public string HandlingPlace { get; set; }
         [HalfWidth]
-        public string Place { get; set; }
-        [HalfWidth]
 
         public string RepairEmpId { get; set; }
- 
+
 
         [RepairFormRecordsGridEditor, FullWidth]
         [DisplayName("")]

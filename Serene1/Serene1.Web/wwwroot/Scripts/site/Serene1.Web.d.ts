@@ -699,6 +699,64 @@ declare namespace Serene1.Default {
     }
 }
 declare namespace Serene1.Default {
+    class ClinicsColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace Serene1.Default {
+    interface ClinicsForm {
+        DeptNo: Serenity.StringEditor;
+        ClinicNo: Serenity.StringEditor;
+        ClinicName: Serenity.StringEditor;
+        ClinicNameEng: Serenity.StringEditor;
+    }
+    class ClinicsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace Serene1.Default {
+    interface ClinicsRow {
+        DeptNo?: string;
+        ClinicNo?: string;
+        ClinicName?: string;
+        ClinicNameEng?: string;
+    }
+    namespace ClinicsRow {
+        const idProperty = "DeptNo";
+        const nameProperty = "DeptNo";
+        const localTextPrefix = "Default.Clinics";
+        const deletePermission = "Default:Clinics:Delete";
+        const insertPermission = "Default:Clinics:Add";
+        const readPermission = "Default:Clinics:View";
+        const updatePermission = "Default:Clinics:Modify";
+        const enum Fields {
+            DeptNo = "DeptNo",
+            ClinicNo = "ClinicNo",
+            ClinicName = "ClinicName",
+            ClinicNameEng = "ClinicNameEng"
+        }
+    }
+}
+declare namespace Serene1.Default {
+    namespace ClinicsService {
+        const baseUrl = "Default/Clinics";
+        function Create(request: Serenity.SaveRequest<ClinicsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ClinicsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ClinicsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ClinicsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Clinics/Create",
+            Update = "Default/Clinics/Update",
+            Delete = "Default/Clinics/Delete",
+            Retrieve = "Default/Clinics/Retrieve",
+            List = "Default/Clinics/List"
+        }
+    }
+}
+declare namespace Serene1.Default {
     class ContactBookColumns {
         static columnsKey: string;
     }
@@ -802,6 +860,64 @@ declare namespace Serene1.Default {
             Delete = "Default/ContactBook/Delete",
             Retrieve = "Default/ContactBook/Retrieve",
             List = "Default/ContactBook/List"
+        }
+    }
+}
+declare namespace Serene1.Default {
+    class DepartmentsColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace Serene1.Default {
+    interface DepartmentsForm {
+        DeptNo: Serenity.StringEditor;
+        DeptName: Serenity.StringEditor;
+        DeptNameEng: Serenity.StringEditor;
+        Hiddent: Serenity.BooleanEditor;
+    }
+    class DepartmentsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace Serene1.Default {
+    interface DepartmentsRow {
+        DeptNo?: string;
+        DeptName?: string;
+        DeptNameEng?: string;
+        Hiddent?: boolean;
+    }
+    namespace DepartmentsRow {
+        const idProperty = "DeptNo";
+        const nameProperty = "DeptNo";
+        const localTextPrefix = "Default.Departments";
+        const deletePermission = "Default:Departments:Delete";
+        const insertPermission = "Default:Departments:Add";
+        const readPermission = "Default:Departments:View";
+        const updatePermission = "Default:Departments:Modify";
+        const enum Fields {
+            DeptNo = "DeptNo",
+            DeptName = "DeptName",
+            DeptNameEng = "DeptNameEng",
+            Hiddent = "Hiddent"
+        }
+    }
+}
+declare namespace Serene1.Default {
+    namespace DepartmentsService {
+        const baseUrl = "Default/Departments";
+        function Create(request: Serenity.SaveRequest<DepartmentsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<DepartmentsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DepartmentsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DepartmentsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Departments/Create",
+            Update = "Default/Departments/Update",
+            Delete = "Default/Departments/Delete",
+            Retrieve = "Default/Departments/Retrieve",
+            List = "Default/Departments/List"
         }
     }
 }
@@ -1211,7 +1327,6 @@ declare namespace Serene1.Default {
         ServiceCount: Serenity.IntegerEditor;
         EvalutionLevel: Serenity.StringEditor;
         HandlingPlace: Serenity.StringEditor;
-        Place: Serenity.StringEditor;
         RepairEmpId: Serenity.StringEditor;
         DetailList: RepairFormRecordsGridEditor;
     }
@@ -1292,6 +1407,72 @@ declare namespace Serene1.Default {
             Delete = "Default/RepairFormRecords/Delete",
             Retrieve = "Default/RepairFormRecords/Retrieve",
             List = "Default/RepairFormRecords/List"
+        }
+    }
+}
+declare namespace Serene1.Default {
+    class SpecialCallingLogicsColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace Serene1.Default {
+    interface SpecialCallingLogicsForm {
+        PackageName: Serenity.StringEditor;
+        SpecialStatus: Editor.StatusEditor;
+        Seq: Serenity.IntegerEditor;
+        RagulerCount: Serenity.IntegerEditor;
+        CallCount: Serenity.IntegerEditor;
+        OldAge: Serenity.IntegerEditor;
+    }
+    class SpecialCallingLogicsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace Serene1.Default {
+    interface SpecialCallingLogicsRow {
+        Id?: string;
+        PackageName?: string;
+        SpecialStatus?: number;
+        Seq?: number;
+        RagulerCount?: number;
+        CallCount?: number;
+        OldAge?: number;
+    }
+    namespace SpecialCallingLogicsRow {
+        const idProperty = "Id";
+        const nameProperty = "PackageName";
+        const localTextPrefix = "Default.SpecialCallingLogics";
+        const deletePermission = "Default:SpecialCallingLogics:Delete";
+        const insertPermission = "Default:SpecialCallingLogics:Add";
+        const readPermission = "Default:SpecialCallingLogics:View";
+        const updatePermission = "Default:SpecialCallingLogics:Modify";
+        const enum Fields {
+            Id = "Id",
+            PackageName = "PackageName",
+            SpecialStatus = "SpecialStatus",
+            Seq = "Seq",
+            RagulerCount = "RagulerCount",
+            CallCount = "CallCount",
+            OldAge = "OldAge"
+        }
+    }
+}
+declare namespace Serene1.Default {
+    namespace SpecialCallingLogicsService {
+        const baseUrl = "Default/SpecialCallingLogics";
+        function Create(request: Serenity.SaveRequest<SpecialCallingLogicsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SpecialCallingLogicsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SpecialCallingLogicsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SpecialCallingLogicsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/SpecialCallingLogics/Create",
+            Update = "Default/SpecialCallingLogics/Update",
+            Delete = "Default/SpecialCallingLogics/Delete",
+            Retrieve = "Default/SpecialCallingLogics/Retrieve",
+            List = "Default/SpecialCallingLogics/List"
         }
     }
 }
@@ -1800,6 +1981,30 @@ declare namespace Serene1.Default {
     }
 }
 declare namespace Serene1.Default {
+    class ClinicsDialog extends Serenity.EntityDialog<ClinicsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ClinicsForm;
+    }
+}
+declare namespace Serene1.Default {
+    class ClinicsGrid extends Serenity.EntityGrid<ClinicsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ClinicsDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Serene1.Default {
     class ContactBookDialog extends Serenity.EntityDialog<ContactBookRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -1872,6 +2077,30 @@ declare namespace Serene1.Default {
         getColumns(): Slick.Column[];
         getSlickOptions(): Slick.GridOptions;
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
+    }
+}
+declare namespace Serene1.Default {
+    class DepartmentsDialog extends Serenity.EntityDialog<DepartmentsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: DepartmentsForm;
+    }
+}
+declare namespace Serene1.Default {
+    class DepartmentsGrid extends Serenity.EntityGrid<DepartmentsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof DepartmentsDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace Serene1.Default {
@@ -2027,6 +2256,30 @@ declare namespace Serene1.Default {
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
     }
 }
+declare namespace Serene1.Default {
+    class SpecialCallingLogicsDialog extends Serenity.EntityDialog<SpecialCallingLogicsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: SpecialCallingLogicsForm;
+    }
+}
+declare namespace Serene1.Default {
+    class SpecialCallingLogicsGrid extends Serenity.EntityGrid<SpecialCallingLogicsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SpecialCallingLogicsDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
 declare namespace Serene1.Editor {
     class AlreadyKnowEditor extends Serenity.Select2Editor<any, any> {
         constructor(container: JQuery, opt?: Serenity.Select2CommonOptions);
@@ -2070,6 +2323,11 @@ declare namespace Serene1.Editor {
 declare namespace Serene1.Editor {
     class SexEditor extends Serenity.RadioButtonEditor {
         constructor(container: JQuery, opt?: Serenity.RadioButtonEditorOptions);
+    }
+}
+declare namespace Serene1.Editor {
+    class StatusEditor extends Serenity.Select2Editor<any, any> {
+        constructor(container: JQuery, opt?: Serenity.Select2CommonOptions);
     }
 }
 declare namespace Serene1.Editor {

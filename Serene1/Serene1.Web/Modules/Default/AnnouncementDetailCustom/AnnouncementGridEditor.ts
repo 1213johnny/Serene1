@@ -113,7 +113,7 @@ namespace Serene1.Default {
         //    return grid;
         //}
 
-        // *** Resizes the columns after changes are made to the grid (ex. Column Picker) *
+         //*** Resizes the columns after changes are made to the grid (ex. Column Picker) *
         //protected markupReady() {
         //    super.markupReady();
         //    if (this.autoSize != null) {

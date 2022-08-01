@@ -180,5 +180,72 @@ namespace Serene1.Default
             [Description("維修紀錄單明細 :後台選單")]
             public const string BackendMenu = "Default:RepairFormDetailRecords:BackendMenu";
         }
+
+        [DisplayName("科別檔")]
+        public class Departments
+        {
+            [Description("科別檔:選單")]
+            public const string Menu = "Default:Departments:Menu";
+
+            [Description("科別檔:瀏覽")]
+            public const string View = "Default:Departments:View";
+
+            [Description("科別檔:新增")]
+            public const string Add = "Default:Departments:Add";
+
+            [Description("科別檔:修改")]
+            public const string Modify = "Default:Departments:Modify";
+
+            [Description("科別檔:刪除")]
+            public const string Delete = "Default:Departments:Delete";
+
+            [Description("科別檔 :後台選單")]
+            public const string BackendMenu = "Default:Departments:BackendMenu";
+        }
+
+        [DisplayName("診別檔")]
+        public class Clinics
+        {
+            [Description("診別檔:選單")]
+            public const string Menu = "Default:Clinics:Menu";
+
+            [Description("診別檔:瀏覽")]
+            public const string View = "Default:Clinics:View";
+
+            [Description("診別檔:新增")]
+            public const string Add = "Default:Clinics:Add";
+
+            [Description("診別檔:修改")]
+            public const string Modify = "Default:Clinics:Modify";
+
+            [Description("診別檔:刪除")]
+            public const string Delete = "Default:Clinics:Delete";
+
+            [Description("診別檔 :後台選單")]
+            public const string BackendMenu = "Default:Clinics:BackendMenu";
+        }
+
+        [DisplayName("特殊叫號邏輯檔")]
+        public class SpecialCallingLogics
+        {
+            [Description("診別檔:選單")]
+            public const string Menu = "Default:SpecialCallingLogics:Menu";
+
+            [Description("診別檔:瀏覽")]
+            public const string View = "Default:SpecialCallingLogics:View";
+
+            [Description("診別檔:新增")]
+            public const string Add = "Default:SpecialCallingLogics:Add";
+
+            [Description("診別檔:修改")]
+            public const string Modify = "Default:SpecialCallingLogics:Modify";
+
+            [Description("診別檔:刪除")]
+            public const string Delete = "Default:SpecialCallingLogics:Delete";
+
+            [Description("診別檔 :後台選單")]
+            public const string BackendMenu = "Default:SpecialCallingLogics:BackendMenu";
+        }
     }
 }
+
