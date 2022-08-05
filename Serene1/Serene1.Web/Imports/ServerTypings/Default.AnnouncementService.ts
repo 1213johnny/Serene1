@@ -3,6 +3,7 @@
         export const baseUrl = 'Default/Announcement';
 
         export declare function Create(request: Serenity.SaveRequest<AnnouncementRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function CreateBothDetail(request: Serenity.SaveRequest<AnnouncementRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function Update(request: Serenity.SaveRequest<AnnouncementRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AnnouncementRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
@@ -10,6 +11,7 @@
 
         export declare const enum Methods {
             Create = "Default/Announcement/Create",
+            CreateBothDetail = "Default/Announcement/CreateBothDetail",
             Update = "Default/Announcement/Update",
             Delete = "Default/Announcement/Delete",
             Retrieve = "Default/Announcement/Retrieve",
@@ -18,6 +20,7 @@
 
         [
             'Create', 
+            'CreateBothDetail', 
             'Update', 
             'Delete', 
             'Retrieve', 

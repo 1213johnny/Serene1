@@ -10,10 +10,13 @@ namespace Serene1.Default {
         protected getLocalTextPrefix() { return ContactBookRow.localTextPrefix; }
         protected getService() { return ContactBookService.baseUrl; }
 
-        constructor(container: JQuery) {
+        private caseNo;
+        constructor(container: JQuery, caseNo: string) {            
+            this.caseNo = caseNo;
             super(container);
+            
         }
-        createQuickSearchInput() { }
+        createQuickSearchInput() { }   
         protected getButtons() {
             var buttons = super.getButtons();
 
@@ -88,8 +91,12 @@ namespace Serene1.Default {
                         h.request.Criteria = Serenity.Criteria.and([['Caseno'], 'like', `%${h.value}%`], null);
                     }
                 }
-                casenoFilter.init = w => {
-                    (w as Serenity.StringEditor).value = "f";
+                if (this.caseNo) {
+
+                    casenoFilter.init = w => {
+                        (w as Serenity.StringEditor).value = this.caseNo;
+                    }
+
                 }
             }
 

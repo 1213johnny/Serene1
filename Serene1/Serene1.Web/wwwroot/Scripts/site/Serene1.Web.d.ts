@@ -584,12 +584,14 @@ declare namespace Serene1.Default {
     namespace AnnouncementService {
         const baseUrl = "Default/Announcement";
         function Create(request: Serenity.SaveRequest<AnnouncementRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function CreateBothDetail(request: Serenity.SaveRequest<AnnouncementRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Update(request: Serenity.SaveRequest<AnnouncementRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AnnouncementRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AnnouncementRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "Default/Announcement/Create",
+            CreateBothDetail = "Default/Announcement/CreateBothDetail",
             Update = "Default/Announcement/Update",
             Delete = "Default/Announcement/Delete",
             Retrieve = "Default/Announcement/Retrieve",
@@ -616,6 +618,7 @@ declare namespace Serene1.Default {
     interface CaseServiceDataForm {
         CaseNo: Serenity.StringEditor;
         PatientId: Serenity.StringEditor;
+        PatientName: Serenity.StringEditor;
         RocId: Serenity.StringEditor;
         CreateDate: Serenity.DateEditor;
         CreateUser: Serenity.IntegerEditor;
@@ -632,6 +635,7 @@ declare namespace Serene1.Default {
     interface CaseServiceDataFormCustom {
         CaseNo: Serenity.StringEditor;
         PatientId: Serenity.StringEditor;
+        PatientName: Serenity.StringEditor;
         RocId: Serenity.StringEditor;
         CreateDate: Serenity.DateEditor;
         CreateUser: Serenity.IntegerEditor;
@@ -656,6 +660,7 @@ declare namespace Serene1.Default {
         UpdateUser?: number;
         CreateUserName?: string;
         UpdateUserName?: string;
+        PatientName?: string;
     }
     namespace CaseServiceDataRow {
         const idProperty = "Oid";
@@ -677,7 +682,8 @@ declare namespace Serene1.Default {
             UpdateDate = "UpdateDate",
             UpdateUser = "UpdateUser",
             CreateUserName = "CreateUserName",
-            UpdateUserName = "UpdateUserName"
+            UpdateUserName = "UpdateUserName",
+            PatientName = "PatientName"
         }
     }
 }
@@ -786,6 +792,7 @@ declare namespace Serene1.Default {
         Advise: Serenity.TextAreaEditor;
         Alreadyknow: Editor.AlreadyKnowEditor;
         Checkbox: Serenity.BooleanEditor;
+        PatientName: Serenity.StringEditor;
     }
     class ContactBookFormCustom extends Serenity.PrefixedContext {
         static formKey: string;
@@ -820,6 +827,7 @@ declare namespace Serene1.Default {
         CreateUserName?: string;
         UpdateUserName?: string;
         Checkbox?: boolean;
+        PatientName?: string;
     }
     namespace ContactBookRow {
         const idProperty = "Oid";
@@ -842,7 +850,8 @@ declare namespace Serene1.Default {
             UpdateDate = "UpdateDate",
             CreateUserName = "CreateUserName",
             UpdateUserName = "UpdateUserName",
-            Checkbox = "Checkbox"
+            Checkbox = "Checkbox",
+            PatientName = "PatientName"
         }
     }
 }
@@ -852,15 +861,21 @@ declare namespace Serene1.Default {
         function Create(request: Serenity.SaveRequest<ContactBookRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Update(request: Serenity.SaveRequest<ContactBookRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function NewCreate(request: Serenity.SaveRequest<ContactBookRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ContactBookRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ContactBookRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "Default/ContactBook/Create",
             Update = "Default/ContactBook/Update",
             Delete = "Default/ContactBook/Delete",
+            NewCreate = "Default/ContactBook/NewCreate",
             Retrieve = "Default/ContactBook/Retrieve",
             List = "Default/ContactBook/List"
         }
+    }
+}
+declare namespace Serene1.Default {
+    namespace DefaultPermissionKeys {
     }
 }
 declare namespace Serene1.Default {
@@ -1867,6 +1882,9 @@ declare namespace Serene1.Default {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: AnnouncementForm;
+        afterLoadEntity(): void;
+        validateBeforeSave(): boolean;
+        protected getSaveOptions(res: any): Serenity.ServiceOptions<Serenity.SaveResponse>;
     }
 }
 declare namespace Serene1.Default {
@@ -1974,7 +1992,9 @@ declare namespace Serene1.Default {
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
+        protected CaseServiceDataGrid: CaseServiceDataGridCustom;
         constructor(container: JQuery);
+        protected getButtons(): Serenity.ToolButton[];
         getColumns(): Slick.Column[];
         getSlickOptions(): Slick.GridOptions;
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
@@ -2043,6 +2063,7 @@ declare namespace Serene1.Default {
         private caseNo;
         constructor(Caseno?: string);
         afterLoadEntity(): void;
+        protected getSaveOptions(res: any): Serenity.ServiceOptions<Serenity.SaveResponse>;
     }
 }
 declare namespace Serene1.Default {
@@ -2069,7 +2090,8 @@ declare namespace Serene1.Default {
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
-        constructor(container: JQuery);
+        private caseNo;
+        constructor(container: JQuery, caseNo: string);
         createQuickSearchInput(): void;
         protected getButtons(): Serenity.ToolButton[];
         protected onViewSubmit(): boolean;
@@ -2278,6 +2300,15 @@ declare namespace Serene1.Default {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+    }
+}
+declare namespace Serene1.Default {
+    class DynamicGridPanel<TItem, TGrid extends Serenity.DataGrid<TItem, any>> extends Serenity.TemplatedDialog<any> {
+        grid: Serenity.Widget<any>;
+        title: string;
+        constructor();
+        protected getTemplateName(): string;
+        onDialogOpen(): void;
     }
 }
 declare namespace Serene1.Editor {

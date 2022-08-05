@@ -19,6 +19,8 @@ namespace Serene1.Default.Columns
         [QuickFilter]
         public int Alreadyknow { get; set; }
         public string Advise { get; set; }
+        public string PatientName { get; set; }
+       
         public DateTime Advisedate { get; set; }   
         public int CreateUser { get; set; }
         public string CreateUserName { get; set; }

@@ -42,7 +42,6 @@ namespace Serene1.Default
             set => fields.Alreadyknow[this] = value;
         }
         
-        
 
         [DisplayName("UpdateUser"), Column("UpdateUser"), ForeignKey(typeof(UserRow), "UserId"), LeftJoin("d")]
         public int? UpdateUser
@@ -74,7 +73,6 @@ namespace Serene1.Default
             set => fields.Advisedate[this] = value;
         }
        
-
         [DisplayName("Advise"), Column("ADVISE"), Size(50)]
         public string Advise
         {
@@ -114,6 +112,13 @@ namespace Serene1.Default
             set => fields.Checkbox[this] = value;
         }
 
+        [DisplayName("PatientName "), Size(50)]
+        public string PatientName
+        {
+            get => fields.PatientName[this];
+            set => fields.PatientName[this] = value;
+        }
+
         Field IUpdateLogRow.UpdateUserIdField => Fields.UpdateUser;
 
         DateTimeField IUpdateLogRow.UpdateDateField => Fields.UpdateDate;
@@ -147,6 +152,7 @@ namespace Serene1.Default
             public StringField CreateUserName;
             public StringField UpdateUserName;
             public BooleanField Checkbox;
+            public StringField PatientName; 
         }
     }
 }

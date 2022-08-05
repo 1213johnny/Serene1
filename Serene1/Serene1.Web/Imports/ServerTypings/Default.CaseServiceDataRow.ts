@@ -10,6 +10,7 @@
         UpdateUser?: number;
         CreateUserName?: string;
         UpdateUserName?: string;
+        PatientName?: string;
     }
 
     export namespace CaseServiceDataRow {
@@ -36,7 +37,8 @@
             UpdateDate = "UpdateDate",
             UpdateUser = "UpdateUser",
             CreateUserName = "CreateUserName",
-            UpdateUserName = "UpdateUserName"
+            UpdateUserName = "UpdateUserName",
+            PatientName = "PatientName"
         }
     }
 }

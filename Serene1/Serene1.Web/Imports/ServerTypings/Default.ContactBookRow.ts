@@ -13,6 +13,7 @@
         CreateUserName?: string;
         UpdateUserName?: string;
         Checkbox?: boolean;
+        PatientName?: string;
     }
 
     export namespace ContactBookRow {
@@ -37,7 +38,8 @@
             UpdateDate = "UpdateDate",
             CreateUserName = "CreateUserName",
             UpdateUserName = "UpdateUserName",
-            Checkbox = "Checkbox"
+            Checkbox = "Checkbox",
+            PatientName = "PatientName"
         }
     }
 }

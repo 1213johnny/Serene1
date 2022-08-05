@@ -36,6 +36,13 @@ namespace Serene1.Default.Endpoints
             return handler.Delete(uow, request);
         }
 
+        [HttpPost, AuthorizeCreate(typeof(MyRow))]
+        public SaveResponse NewCreate(IUnitOfWork uow, SaveRequest<MyRow> request,
+          [FromServices] IContactBookSaveHandler handler)
+        {
+            return handler.NewCreate(uow, request);
+        }
+
         [HttpPost]
         public RetrieveResponse<MyRow> Retrieve(IDbConnection connection, RetrieveRequest request,
             [FromServices] IContactBookRetrieveHandler handler)
@@ -56,7 +63,15 @@ namespace Serene1.Default.Endpoints
             [FromServices] IExcelExporter exporter)
         {
             var data = List(connection, request, handler).Entities;
-            var bytes = exporter.Export(data, typeof(Columns.ContactBookColumns), request.ExportColumns);
+            //foreach (var i in data)
+            //{
+            //    if (i.Alreadyknow == 0)
+            //        i.Alreadyknow = '否' ;
+            //    else if (i.Alreadyknow == 1)
+            //        i.Alreadyknow = '是' ;
+            //}
+            var bytes = exporter.Export(data, typeof(Columns.ContactBookColumnsCustom), request.ExportColumns);      
+            
             return ExcelContentResult.Create(bytes, "ContactBookList_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".xlsx");
         }

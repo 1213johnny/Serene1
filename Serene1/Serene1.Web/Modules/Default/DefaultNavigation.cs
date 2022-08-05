@@ -6,6 +6,8 @@ using MyPages = Serene1.Default.Pages;
 [assembly: NavigationLink(int.MaxValue, "Default/Employee", typeof(MyPages.EmployeeController), icon: null, Permission = Serene1.Default.DefaultPermissionKeys.Employee.Menu)]
 [assembly: NavigationLink(int.MaxValue, "Default/Announcement", typeof(MyPages.AnnouncementController),action:"CustomIndex", icon: null, Permission = Serene1.Default.DefaultPermissionKeys.Announcement.Menu)]
 [assembly: NavigationLink(int.MaxValue, "Default/Repair Form Records", typeof(MyPages.RepairFormRecordsController),action:"CustomIndex", icon: null, Permission = Serene1.Default.DefaultPermissionKeys.RepairFormRecords.Menu)]
+[assembly: NavigationLink(int.MaxValue, "Default/Case Service Data", typeof(MyPages.CaseServiceDataController), action: "CustomIndex", icon: null, Permission = Serene1.Default.DefaultPermissionKeys.CaseServiceData.Menu)]
+
 
 [assembly: NavigationMenu(int.MaxValue, "DefaultBackend", icon: "fa-desktop")]
 [assembly: NavigationLink(int.MaxValue, "DefaultBackend/Contact Book", typeof(MyPages.ContactBookController), icon: null, Permission = Serene1.Default.DefaultPermissionKeys.ContactBook.Menu)]

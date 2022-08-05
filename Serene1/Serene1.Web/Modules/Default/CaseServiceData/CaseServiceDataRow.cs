@@ -16,7 +16,7 @@ namespace Serene1.Default
     [ModifyPermission(DefaultPermissionKeys.EmpQuestionnaire.Modify)]
     [DeletePermission(DefaultPermissionKeys.EmpQuestionnaire.Delete)]
     [LookupScript("Lookup.CaseServiceData",Permission ="?")]
-    public sealed class CaseServiceDataRow : Row<CaseServiceDataRow.RowFields>, IIdRow, INameRow
+    public sealed class CaseServiceDataRow : Row<CaseServiceDataRow.RowFields>, IIdRow, INameRow, ILoggingRow
     {
         [DisplayName("Oid"), Column("OID"), Identity, IdProperty]
         public int? Oid
@@ -87,6 +87,21 @@ namespace Serene1.Default
             set => fields.UpdateUserName[this] = value;
         }
 
+        [DisplayName("PatientName "), Size(50)]
+        public string PatientName
+        {
+            get => fields.PatientName[this];
+            set => fields.PatientName[this] = value;
+        }
+
+        Field IUpdateLogRow.UpdateUserIdField => Fields.UpdateUser;
+
+        DateTimeField IUpdateLogRow.UpdateDateField => Fields.UpdateDate;
+
+        Field IInsertLogRow.InsertUserIdField => Fields.CreateUser;
+
+        DateTimeField IInsertLogRow.InsertDateField => Fields.CreateDate;
+
         public CaseServiceDataRow()
             : base()
         {
@@ -109,6 +124,7 @@ namespace Serene1.Default
             public Int32Field UpdateUser;
             public StringField CreateUserName;
             public StringField UpdateUserName;
+            public StringField PatientName;
         }
     }
 }

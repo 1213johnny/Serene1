@@ -25,12 +25,19 @@ namespace Serene1.Default {
                 else
                     this.form.Alreadyknow.value = "0";
             });
-                        }
+        }
         afterLoadEntity() {
             super.afterLoadEntity();
 
-            //this.form.Caseno.value = this.Caseno;
+           //this.form.Caseno.value = this.Caseno;
         }
+        protected getSaveOptions(res) {
+            let options = super.getSaveOptions(res);
 
+            if (this.isNew())
+                options.url = `/Services/${this.getService()}/NewCreate`;
+
+            return options;
+        }
     }
 }

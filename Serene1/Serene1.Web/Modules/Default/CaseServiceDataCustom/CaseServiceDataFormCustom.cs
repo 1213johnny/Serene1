@@ -14,6 +14,7 @@ namespace Serene1.Default.Forms
     {
         public string CaseNo { get; set; }
         public string PatientId { get; set; }
+        public string PatientName { get; set; }
         public string RocId { get; set; }
         public DateTime CreateDate { get; set; }
         public int CreateUser { get; set; }

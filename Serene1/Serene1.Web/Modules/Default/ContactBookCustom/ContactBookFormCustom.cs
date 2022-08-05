@@ -32,6 +32,8 @@ namespace Serene1.Default.Forms
         [LabelWidth(150)]
         [QuarterWidth(JustThis = true)]
         public Boolean Checkbox { get; set; }
+        [Hidden]
+        public string PatientName { get; set; }
         
     }
 }

@@ -9,7 +9,7 @@
             Serene1.Default.CaseServiceDataService.List({}, (r) => {
                 if (r.TotalCount > 0) {
                     $.each(r.Entities, (i, m) => {
-                        this.addOption(m.CaseNo, m.PatientId);
+                        this.addOption(m.CaseNo, m.PatientName);
                     });
                 }
             }, { async: false });

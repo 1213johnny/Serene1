@@ -13,5 +13,10 @@ namespace Serene1.Default.Pages
         {
             return View("~/Modules/Default/CaseServiceData/CaseServiceDataIndex.cshtml");
         }
+        [Route("Default/CaseServiceDataCustom")]
+        public ActionResult CustomIndex()
+        {
+            return View("~/Modules/Default/CaseServiceDataCustom/CaseServiceDataCustomIndex.cshtml");
+        }
     }
 }

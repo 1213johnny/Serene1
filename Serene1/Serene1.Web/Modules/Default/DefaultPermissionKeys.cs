@@ -3,6 +3,7 @@ using System.ComponentModel;
 
 namespace Serene1.Default
 {
+    [NestedPermissionKeys]
     public class DefaultPermissionKeys
     {
         [DisplayName("聯絡簿")]

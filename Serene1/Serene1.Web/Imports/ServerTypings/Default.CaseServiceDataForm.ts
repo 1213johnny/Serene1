@@ -2,6 +2,7 @@
     export interface CaseServiceDataForm {
         CaseNo: Serenity.StringEditor;
         PatientId: Serenity.StringEditor;
+        PatientName: Serenity.StringEditor;
         RocId: Serenity.StringEditor;
         CreateDate: Serenity.DateEditor;
         CreateUser: Serenity.IntegerEditor;
@@ -27,6 +28,7 @@
                 Q.initFormType(CaseServiceDataForm, [
                     'CaseNo', w0,
                     'PatientId', w0,
+                    'PatientName', w0,
                     'RocId', w0,
                     'CreateDate', w1,
                     'CreateUser', w2,

@@ -10,12 +10,24 @@ namespace Serene1.Default {
         protected getLocalTextPrefix() { return CaseServiceDataRow.localTextPrefix; }
         protected getService() { return CaseServiceDataService.baseUrl; }
 
+        protected CaseServiceDataGrid: CaseServiceDataGridCustom;
+
         constructor(container: JQuery) {
             super(container);
         }
+        protected getButtons() {
+
+            var buttons = super.getButtons();
+
+            buttons.splice(Q.indexOf(buttons, x => x.cssClass == "refresh-button"), 1);
+            buttons.splice(Q.indexOf(buttons, x => x.cssClass == "tool-button"), 1);
+                    
+            return buttons;
+
+        }
         getColumns() {
             let columns = super.getColumns();
-            
+
             columns.unshift({
                 field: "DeleteRow",
                 name: "",
@@ -43,6 +55,20 @@ namespace Serene1.Default {
                 width: 80,
                 minWidth: 80,
                 maxWidth: 80
+            });
+            columns.unshift({
+                field: "QQQRow",
+                name: "",
+                format: (ctx) => {
+                    let item = <CaseServiceDataRow>ctx.item;
+                    if (Q.Authorization.hasPermission(CaseServiceDataRow.updatePermission) || Q.Authorization.hasPermission(CaseServiceDataRow.insertPermission))
+                        return `<button class="btn btn-warning qqq-row fa fa-list-ul" title="家庭聯絡簿">家庭聯絡簿</button>`;
+
+                    return `<button class="btn btn-warning fa fa-list-ul" disabled title="家庭聯絡簿">家庭聯絡簿</button>`;
+                },
+                width: 140,
+                minWidth: 140,
+                maxWidth: 140
             });
             return columns;
         }
@@ -77,6 +103,12 @@ namespace Serene1.Default {
                         this.refresh();
                     });
                 });
+            }
+            else if ($(e.target).hasClass('qqq-row')) {
+                let dlg = new DynamicGridPanel();
+                dlg.set_dialogTitle("");
+                dlg.grid = new Default.ContactBookGridCustom($("#MyGrid"), item.CaseNo);
+                dlg.dialogOpen();
             }
         }
     }

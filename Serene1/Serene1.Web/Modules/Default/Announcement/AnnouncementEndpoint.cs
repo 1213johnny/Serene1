@@ -22,6 +22,13 @@ namespace Serene1.Default.Endpoints
             return handler.Create(uow, request);
         }
 
+        [HttpPost, AuthorizeCreate(typeof(MyRow))]
+        public SaveResponse CreateBothDetail(IUnitOfWork uow, SaveRequest<MyRow> request,
+           [FromServices] IAnnouncementSaveHandler handler)
+        {
+            return handler.CreateBothDetail(uow, request);
+        }
+
         [HttpPost, AuthorizeUpdate(typeof(MyRow))]
         public SaveResponse Update(IUnitOfWork uow, SaveRequest<MyRow> request,
             [FromServices] IAnnouncementSaveHandler handler)
@@ -57,8 +64,10 @@ namespace Serene1.Default.Endpoints
         {
             var data = List(connection, request, handler).Entities;
             var bytes = exporter.Export(data, typeof(Columns.AnnouncementColumns), request.ExportColumns);
+            
             return ExcelContentResult.Create(bytes, "AnnouncementList_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".xlsx");
         }
+
     }
 }
